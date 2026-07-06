@@ -1,11 +1,18 @@
-// ===================================
-// ROSTISSERIA MILENIUM
+// ==========================================
+// ROSTISSERIA MILENIUM v2.0
 // PARTE 1
-// ===================================
+// ==========================================
 
 // ---------- VARIABLES ----------
 
 let stock = 0;
+let stockInicial = 0;
+let stockReten = 0;
+
+let tipoVenta = "sin";
+
+let pollosEnteros = 0;
+let mediosPollos = 0;
 
 let vendidosSin = 0;
 let vendidosCon = 0;
@@ -16,34 +23,40 @@ let caliu = 0;
 let bravas = 0;
 let fritas = 0;
 
-let pack1Total = 0;
-let pack2Total = 0;
-let pack3Total = 0;
-
 let historial = [];
+
+let packPendiente = "";
 
 // ---------- GUARDAR ----------
 
 function guardarDatos(){
 
-    const datos = {
-        stock,
-        vendidosSin,
-        vendidosCon,
-        pan,
-        canelones,
-        caliu,
-        bravas,
-        fritas,
-        pack1Total,
-        pack2Total,
-        pack3Total,
-        historial
-    };
-
     localStorage.setItem(
-        "rostiControl",
-        JSON.stringify(datos)
+        "rostisseria",
+        JSON.stringify({
+
+            stock,
+            stockInicial,
+            stockReten,
+
+            tipoVenta,
+
+            pollosEnteros,
+            mediosPollos,
+
+            vendidosSin,
+            vendidosCon,
+
+            pan,
+            canelones,
+            caliu,
+            bravas,
+            fritas,
+
+            historial
+
+        })
+
     );
 
 }
@@ -52,13 +65,20 @@ function guardarDatos(){
 
 function cargarDatos(){
 
-    const datos = localStorage.getItem("rostiControl");
+    let datos = localStorage.getItem("rostisseria");
 
     if(!datos) return;
 
-    const d = JSON.parse(datos);
+    let d = JSON.parse(datos);
 
     stock = d.stock || 0;
+    stockInicial = d.stockInicial || 0;
+    stockReten = d.stockReten || 0;
+
+    tipoVenta = d.tipoVenta || "sin";
+
+    pollosEnteros = d.pollosEnteros || 0;
+    mediosPollos = d.mediosPollos || 0;
 
     vendidosSin = d.vendidosSin || 0;
     vendidosCon = d.vendidosCon || 0;
@@ -69,32 +89,7 @@ function cargarDatos(){
     bravas = d.bravas || 0;
     fritas = d.fritas || 0;
 
-    pack1Total = d.pack1Total || 0;
-    pack2Total = d.pack2Total || 0;
-    pack3Total = d.pack3Total || 0;
-
     historial = d.historial || [];
-
-}
-
-// ---------- ACTUALIZAR ----------
-
-function actualizar(){
-
-    document.getElementById("quedan").textContent = stock;
-
-    document.getElementById("sinEncargo").textContent = vendidosSin;
-    document.getElementById("conEncargo").textContent = vendidosCon;
-
-    document.getElementById("pan").textContent = pan;
-    document.getElementById("canelones").textContent = canelones;
-    document.getElementById("caliu").textContent = caliu;
-    document.getElementById("bravas").textContent = bravas;
-    document.getElementById("fritas").textContent = fritas;
-
-    document.getElementById("pack1").textContent = pack1Total;
-    document.getElementById("pack2").textContent = pack2Total;
-    document.getElementById("pack3").textContent = pack3Total;
 
 }
 
@@ -105,6 +100,14 @@ function guardarHistorial(){
     historial.push({
 
         stock,
+        stockInicial,
+        stockReten,
+
+        tipoVenta,
+
+        pollosEnteros,
+        mediosPollos,
+
         vendidosSin,
         vendidosCon,
 
@@ -112,26 +115,64 @@ function guardarHistorial(){
         canelones,
         caliu,
         bravas,
-        fritas,
-
-        pack1Total,
-        pack2Total,
-        pack3Total
+        fritas
 
     });
 
 }
-function sumarVenta(cantidad){
 
-    let tipo = document.querySelector(
-        'input[name="tipoVenta"]:checked'
-    ).value;
+// ---------- ACTUALIZAR ----------
+
+function actualizar(){
+
+    const quedan = document.getElementById("quedan");
+
+    quedan.textContent = stock;
+
+    if(stock<=10){
+
+        quedan.style.color="#d62828";
+
+    }else{
+
+        quedan.style.color="#0d4f8b";
+
+    }
+
+    document.getElementById("pollosEnteros").textContent = pollosEnteros;
+    document.getElementById("mediosPollos").textContent = mediosPollos;
+
+    document.getElementById("sinEncargo").textContent = vendidosSin;
+    document.getElementById("conEncargo").textContent = vendidosCon;
+
+    document.getElementById("pan").textContent = pan;
+    document.getElementById("canelones").textContent = canelones;
+    document.getElementById("caliu").textContent = caliu;
+    document.getElementById("bravas").textContent = bravas;
+    document.getElementById("fritas").textContent = fritas;
+
+}
+
+// ---------- TIPO VENTA ----------
+
+function seleccionarTipo(tipo){
+
+    tipoVenta = tipo;
+
+    document.getElementById("btnSin").classList.remove("activo");
+    document.getElementById("btnCon").classList.remove("activo");
 
     if(tipo=="sin"){
-        vendidosSin += cantidad;
+
+        document.getElementById("btnSin").classList.add("activo");
+
     }else{
-        vendidosCon += cantidad;
+
+        document.getElementById("btnCon").classList.add("activo");
+
     }
+
+    guardarDatos();
 
 }
 
@@ -143,11 +184,10 @@ function iniciarStock(){
         document.getElementById("stockInicial").value
     );
 
-    if(isNaN(valor)){
-        return;
-    }
+    if(isNaN(valor)) return;
 
     stock = valor;
+    stockInicial = valor;
 
     actualizar();
     guardarDatos();
@@ -160,11 +200,10 @@ function añadirStock(){
         document.getElementById("stockExtra").value
     );
 
-    if(isNaN(extra) || extra<=0){
-        return;
-    }
+    if(isNaN(extra) || extra<=0) return;
 
     stock += extra;
+    stockReten += extra;
 
     document.getElementById("stockExtra").value="";
 
@@ -172,8 +211,24 @@ function añadirStock(){
     guardarDatos();
 
 }
+// ==========================================
+// PARTE 2
+// VENTAS Y PACKS
+// ==========================================
 
-// ---------- VENTAS ----------
+// ---------- SUMAR VENTA ----------
+
+function sumarVenta(cantidad){
+
+    if(tipoVenta=="sin"){
+        vendidosSin += cantidad;
+    }else{
+        vendidosCon += cantidad;
+    }
+
+}
+
+// ---------- POLLO ENTERO ----------
 
 function venderPollo(){
 
@@ -186,12 +241,16 @@ function venderPollo(){
 
     stock--;
 
+    pollosEnteros++;
+
     sumarVenta(1);
 
     actualizar();
     guardarDatos();
 
 }
+
+// ---------- MEDIO POLLO ----------
 
 function venderMedioPollo(){
 
@@ -204,12 +263,16 @@ function venderMedioPollo(){
 
     stock-=0.5;
 
+    mediosPollos++;
+
     sumarVenta(0.5);
 
     actualizar();
     guardarDatos();
 
 }
+
+// ---------- PRODUCTOS ----------
 
 function venderPan(){
 
@@ -265,67 +328,8 @@ function venderFritas(){
     guardarDatos();
 
 }
-// ===================================
-// PARTE 2
-// PACKS + DESHACER + REINICIAR
-// ===================================
-
-// ---------- ELEGIR PATATAS ----------
-
-let packPendiente = "";
-
-function mostrarPatatas(tipo){
-
-    packPendiente = tipo;
-
-    document.getElementById("selectorPatatas").style.display="block";
-
-}
-
-function patataSeleccionada(tipo){
-
-    document.getElementById("selectorPatatas").style.display="none";
-
-    guardarHistorial();
-
-    if(tipo=="caliu") caliu++;
-    if(tipo=="bravas") bravas++;
-    if(tipo=="fritas") fritas++;
-
-    if(packPendiente=="pack2"){
-
-        stock--;
-        
-        sumarVenta(1);
-
-        pan++;
-
-        pack2Total++;
-
-    }
-
-    if(packPendiente=="pack3"){
-
-        stock--;
-
-        sumarVenta(1);
-
-        pan++;
-
-        canelones++;
-
-        pack3Total++;
-
-    }
-
-    actualizar();
-
-    guardarDatos();
-
-}
 
 // ---------- PACK 1 ----------
-// 1/2 pollo + 1/2 caliu
 
 function pack1(){
 
@@ -336,11 +340,13 @@ function pack1(){
 
     guardarHistorial();
 
+    stock-=0.5;
+
+    mediosPollos++;
+
     sumarVenta(0.5);
 
-    caliu += 0.5;
-
-    pack1Total++;
+    caliu+=0.5;
 
     actualizar();
     guardarDatos();
@@ -348,38 +354,89 @@ function pack1(){
 }
 
 // ---------- PACK 2 ----------
-// Pollo + Pan + Patatas
 
 function pack2(){
 
     if(stock<1){
-
         alert("No quedan pollos");
-
         return;
-
     }
 
-    mostrarPatatas("pack2");
+    packPendiente="pack2";
+
+    document.getElementById(
+        "selectorPatatas"
+    ).style.display="block";
 
 }
 
 // ---------- PACK 3 ----------
-// Pollo + Pan + Patatas + Canelón
 
 function pack3(){
 
     if(stock<1){
-
         alert("No quedan pollos");
-
         return;
+    }
+
+    packPendiente="pack3";
+
+    document.getElementById(
+        "selectorPatatas"
+    ).style.display="block";
+
+}
+
+// ---------- PATATAS ----------
+
+function patataSeleccionada(tipo){
+
+    guardarHistorial();
+
+    document.getElementById(
+        "selectorPatatas"
+    ).style.display="none";
+
+    if(tipo=="caliu") caliu++;
+    if(tipo=="bravas") bravas++;
+    if(tipo=="fritas") fritas++;
+
+    if(packPendiente=="pack2"){
+
+        stock--;
+
+        pollosEnteros++;
+
+        pan++;
+
+        sumarVenta(1);
 
     }
 
-    mostrarPatatas("pack3");
+    if(packPendiente=="pack3"){
+
+        stock--;
+
+        pollosEnteros++;
+
+        pan++;
+
+        canelones++;
+
+        sumarVenta(1);
+
+    }
+
+    packPendiente="";
+
+    actualizar();
+    guardarDatos();
 
 }
+// ==========================================
+// PARTE 3
+// DESHACER - REINICIAR - CERRAR DÍA
+// ==========================================
 
 // ---------- DESHACER ----------
 
@@ -392,6 +449,13 @@ function deshacer(){
     let ultimo = historial.pop();
 
     stock = ultimo.stock;
+    stockInicial = ultimo.stockInicial;
+    stockReten = ultimo.stockReten;
+
+    tipoVenta = ultimo.tipoVenta;
+
+    pollosEnteros = ultimo.pollosEnteros;
+    mediosPollos = ultimo.mediosPollos;
 
     vendidosSin = ultimo.vendidosSin;
     vendidosCon = ultimo.vendidosCon;
@@ -401,10 +465,6 @@ function deshacer(){
     caliu = ultimo.caliu;
     bravas = ultimo.bravas;
     fritas = ultimo.fritas;
-
-    pack1Total = ultimo.pack1Total;
-    pack2Total = ultimo.pack2Total;
-    pack3Total = ultimo.pack3Total;
 
     actualizar();
     guardarDatos();
@@ -420,6 +480,11 @@ function reiniciar(){
     }
 
     stock = 0;
+    stockInicial = 0;
+    stockReten = 0;
+
+    pollosEnteros = 0;
+    mediosPollos = 0;
 
     vendidosSin = 0;
     vendidosCon = 0;
@@ -430,42 +495,70 @@ function reiniciar(){
     bravas = 0;
     fritas = 0;
 
-    pack1Total = 0;
-    pack2Total = 0;
-    pack3Total = 0;
-
     historial = [];
 
-    document.getElementById("stockInicial").value = "";
-    document.getElementById("stockExtra").value = "";
+    document.getElementById("stockInicial").value="";
+    document.getElementById("stockExtra").value="";
+
+    seleccionarTipo("sin");
 
     actualizar();
     guardarDatos();
 
 }
-// ===================================
-// PARTE 3
-// INICIO DE LA APLICACIÓN
-// ===================================
 
-window.onload = function(){
+// ---------- CERRAR DÍA ----------
+
+function cerrarDia(){
+
+    alert(
+
+`RESUMEN DEL DÍA
+
+Stock inicial: ${stockInicial}
+
+Retén: ${stockReten}
+
+Total disponibles: ${stockInicial + stockReten}
+
+-------------------------
+
+Pollos enteros: ${pollosEnteros}
+
+Medios pollos: ${mediosPollos}
+
+Barras de pan: ${pan}
+
+Canelones: ${canelones}
+
+Caliu: ${caliu}
+
+Bravas: ${bravas}
+
+Fritas: ${fritas}
+
+-------------------------
+
+Sin encargo: ${vendidosSin}
+
+Con encargo: ${vendidosCon}
+
+-------------------------
+
+Quedan: ${stock}`
+
+    );
+
+}
+
+// ---------- INICIO ----------
+
+window.onload=function(){
 
     cargarDatos();
+
     actualizar();
 
-};let totalPatatas = caliu + bravas + fritas;
+    seleccionarTipo(tipoVenta);
 
-document.getElementById("totalPatatas").textContent = totalPatatas;
-
-// ===================================
-// FUNCIONES FUTURAS
-// ===================================
-
-// Más adelante añadiremos:
-//
-// - Venta CON ENCARGO
-// - Elegir patatas con botones (sin prompt)
-// - Cierre del día
-// - Exportar resumen
-// - Historial por fechas
-// - Instalar como aplicación móvil (PWA)
+};
