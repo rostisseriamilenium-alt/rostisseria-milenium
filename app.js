@@ -601,6 +601,16 @@ Quedan: ${stock}`
 
     );
 
+function guardarResumen(){
+
+    alert("La opción Guardar estará disponible próximamente.");
+
+}
+
+function cerrarResumen(){
+
+    document.getElementById("pantallaResumen").style.display="none";
+
 }
 
 // ---------- INICIO ----------
