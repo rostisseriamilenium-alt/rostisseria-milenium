@@ -566,40 +566,11 @@ function cerrarResumen(){
     document.getElementById("pantallaResumen").style.display="none";
 
 }
+function cerrarResumen(){
 
-function guardarResumen(){
-
-    alert("La opción Guardar será la siguiente mejora.");
+    document.getElementById("pantallaResumen").style.display="none";
 
 }
-
-`RESUMEN DEL DÍA
-
-Stock inicial: ${stockInicial}
-
-Retén añadido: ${stockReten}
-
-Pollos enteros: ${pollosEnteros}
-
-Medios pollos: ${mediosPollos}
-
-Pan: ${pan}
-
-Canelones: ${canelones}
-
-Caliu: ${caliu}
-
-Bravas: ${bravas}
-
-Fritas: ${fritas}
-
-Sin encargo: ${vendidosSin}
-
-Con encargo: ${vendidosCon}
-
-Quedan: ${stock}`
-
-    );
 
 function guardarResumen(){
 
@@ -607,15 +578,9 @@ function guardarResumen(){
 
 }
 
-function cerrarResumen(){
-
-    document.getElementById("pantallaResumen").style.display="none";
-
-}
-
 // ---------- INICIO ----------
 
-window.onload=function(){
+window.onload = function(){
 
     cargarDatos();
 
