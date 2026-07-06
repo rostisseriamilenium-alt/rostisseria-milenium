@@ -224,13 +224,39 @@ style="display:none;">
 
 </button>
 
-<button onclick="reiniciar()">
-
-🔄 REINICIAR DÍA
-
+<button onclick="cerrarDia()">
+📋 CERRAR DÍA
 </button>
 
+
 </section>
+  <div id="pantallaResumen" class="pantallaResumen" style="display:none;">
+
+<div class="resumenCaja">
+
+<h2>📋 CIERRE DEL DÍA</h2>
+
+<div id="contenidoResumen"></div>
+
+<button onclick="guardarResumen()">
+💾 Guardar
+</button>
+
+<button onclick="window.print()">
+🖨️ Imprimir
+</button>
+
+<button onclick="reiniciar()">
+🔄 Reiniciar día
+</button>
+
+<button onclick="cerrarResumen()">
+❌ Volver
+</button>
+
+</div>
+
+</div>
 
 </div>
 
