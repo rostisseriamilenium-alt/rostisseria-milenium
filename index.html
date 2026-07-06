@@ -55,7 +55,36 @@ placeholder="+ Retén">
 <div id="quedan">
 0
 </div>
+<hr>
 
+<h3>Tipo de venta</h3>
+
+<div class="radio">
+
+<label>
+
+<input
+type="radio"
+name="tipoVenta"
+value="sin"
+checked>
+
+Sin encargo
+
+</label>
+
+<label>
+
+<input
+type="radio"
+name="tipoVenta"
+value="con">
+
+Con encargo
+
+</label>
+
+</div>
 </div>
 <h2>Packs</h2>
 
@@ -84,6 +113,23 @@ onclick="pack3()">
 
 <small>Pollo + Pan + Patatas + Canelón + 6 croq </small>
 
+</button>
+
+</div>
+ <div id="selectorPatatas" style="display:none; margin-top:20px;">
+
+<h3>Elige las patatas</h3>
+
+<button onclick="patataSeleccionada('caliu')">
+🥔 Caliu
+</button>
+
+<button onclick="patataSeleccionada('bravas')">
+🍟 Bravas
+</button>
+
+<button onclick="patataSeleccionada('fritas')">
+🍟 Fritas
 </button>
 
 </div>
