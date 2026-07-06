@@ -4,11 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
 
 <title>Rostisseria Milenium</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
@@ -28,7 +31,13 @@
 
 <h2>QUEDAN</h2>
 
-<div id="quedan" class="numeroGrande">0</div>
+<div
+id="quedan"
+class="numeroGrande">
+
+0
+
+</div>
 
 <div class="stockBotones">
 
@@ -37,8 +46,11 @@ id="stockInicial"
 type="number"
 placeholder="Stock inicial">
 
-<button onclick="iniciarStock()">
+<button
+onclick="iniciarStock()">
+
 Iniciar
+
 </button>
 
 <input
@@ -46,15 +58,18 @@ id="stockExtra"
 type="number"
 placeholder="+ Retén">
 
-<button onclick="añadirStock()">
+<button
+onclick="añadirStock()">
+
 + Stock
+
 </button>
 
 </div>
 
 </section>
 
-<!-- TIPO DE VENTA -->
+<!-- TIPO VENTA -->
 
 <section class="tipoVenta">
 
@@ -81,54 +96,79 @@ onclick="seleccionarTipo('con')">
 
 <section class="packs">
 
-<button class="pack" onclick="pack1()">
+<button
+class="pack"
+onclick="pack1()">
 
 📦 PACK 1
 
-<small>1/2 Pollo + 1/2 Caliu</small>
+<small>
+
+1/2 Pollo + 1/2 Caliu
+
+</small>
 
 </button>
 
-<button class="pack" onclick="pack2()">
+<button
+class="pack"
+onclick="pack2()">
 
 📦 PACK 2
 
-<small>Pollo + Pan + Patatas</small>
+<small>
+
+Pollo + Pan + Patatas
+
+</small>
 
 </button>
 
-<button class="pack" onclick="pack3()">
+<button
+class="pack"
+onclick="pack3()">
 
 📦 PACK 3
 
-<small>Pollo + Pan + Patatas + Canelón</small>
+<small>
+
+Pollo + Pan + Patatas + Canelón
+
+</small>
 
 </button>
 
 </section>
 
-<!-- SELECCIÓN PATATAS -->
+<!-- SELECCION PATATAS -->
 
 <section
 id="selectorPatatas"
 class="selectorPatatas"
 style="display:none;">
 
-<h2>ELIGE LAS PATATAS</h2>
+<h2>
 
-<button onclick="patataSeleccionada('caliu')">
+ELIGE LAS PATATAS
+
+</h2>
+
+<button
+onclick="patataSeleccionada('caliu')">
 
 🥔 CALIU
 
 </button>
 
-<button onclick="patataSeleccionada('bravas')">
+<button
+onclick="patataSeleccionada('bravas')">
 
 🍟 BRAVAS
 
 </button>
 
-<button onclick="patataSeleccionada('fritas')">
+<button
+onclick="patataSeleccionada('fritas')">
 
 🍟 FRITAS
 
@@ -140,51 +180,56 @@ style="display:none;">
 
 <section class="productos">
 
-<button onclick="venderPollo()">
+<button
+onclick="venderPollo()">
 
-🍗 POLLO ENTERO
+🍗 POLLO
 
 </button>
 
-<button onclick="venderMedioPollo()">
+<button
+onclick="venderMedioPollo()">
 
 🍗 1/2 POLLO
 
 </button>
 
-<button onclick="venderPan()">
+<button
+onclick="venderPan()">
 
-🥖 BARRA PAN
+🥖 PAN
 
 </button>
 
-<button onclick="venderCanelon()">
+<button
+onclick="venderCanelon()">
 
 🥟 CANELÓN
 
 </button>
 
-<button onclick="venderCaliu()">
+<button
+onclick="venderCaliu()">
 
 🥔 CALIU
 
 </button>
 
-<button onclick="venderBravas()">
+<button
+onclick="venderBravas()">
 
 🍟 BRAVAS
 
 </button>
 
-<button onclick="venderFritas()">
+<button
+onclick="venderFritas()">
 
 🍟 FRITAS
 
 </button>
 
-</section>
-
-<!-- RESUMEN -->
+</section><!-- RESUMEN -->
 
 <section class="resumen">
 
@@ -192,23 +237,50 @@ style="display:none;">
 
 <div class="resumenGrid">
 
-<div>🍗 Pollos enteros <span id="pollosEnteros">0</span></div>
+<div>
+🍗 Pollos enteros
+<span id="pollosEnteros">0</span>
+</div>
 
-<div>🍗 Medios pollos <span id="mediosPollos">0</span></div>
+<div>
+🍗 Medios pollos
+<span id="mediosPollos">0</span>
+</div>
 
-<div>🥖 Barras pan <span id="pan">0</span></div>
+<div>
+🥖 Barras de pan
+<span id="pan">0</span>
+</div>
 
-<div>🥟 Canelones <span id="canelones">0</span></div>
+<div>
+🥟 Canelones
+<span id="canelones">0</span>
+</div>
 
-<div>🥔 Caliu <span id="caliu">0</span></div>
+<div>
+🥔 Caliu
+<span id="caliu">0</span>
+</div>
 
-<div>🍟 Bravas <span id="bravas">0</span></div>
+<div>
+🍟 Bravas
+<span id="bravas">0</span>
+</div>
 
-<div>🍟 Fritas <span id="fritas">0</span></div>
+<div>
+🍟 Fritas
+<span id="fritas">0</span>
+</div>
 
-<div>📞 Sin encargo <span id="sinEncargo">0</span></div>
+<div>
+📞 Sin encargo
+<span id="sinEncargo">0</span>
+</div>
 
-<div>☎️ Con encargo <span id="conEncargo">0</span></div>
+<div>
+☎️ Con encargo
+<span id="conEncargo">0</span>
+</div>
 
 </div>
 
@@ -225,33 +297,50 @@ style="display:none;">
 </button>
 
 <button onclick="cerrarDia()">
+
 📋 CERRAR DÍA
+
 </button>
 
-
 </section>
-  <div id="pantallaResumen" class="pantallaResumen" style="display:none;">
+
+<!-- VENTANA CIERRE -->
+
+<div
+id="pantallaResumen"
+class="pantallaResumen"
+style="display:none;">
 
 <div class="resumenCaja">
 
 <h2>📋 CIERRE DEL DÍA</h2>
 
-<div id="contenidoResumen"></div>
+<div id="contenidoResumen">
+
+</div>
 
 <button onclick="guardarResumen()">
-💾 Guardar
+
+💾 GUARDAR
+
 </button>
 
 <button onclick="window.print()">
-🖨️ Imprimir
+
+🖨️ IMPRIMIR
+
 </button>
 
 <button onclick="reiniciar()">
-🔄 Reiniciar día
+
+🔄 REINICIAR DÍA
+
 </button>
 
 <button onclick="cerrarResumen()">
-❌ Volver
+
+❌ VOLVER
+
 </button>
 
 </div>
