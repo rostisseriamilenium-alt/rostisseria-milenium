@@ -1,0 +1,147 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f2f4f8;
+    padding:20px;
+}
+
+.contenedor{
+    max-width:700px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#17375e;
+    margin-bottom:20px;
+}
+
+.caja{
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+h2,h3{
+    text-align:center;
+    color:#17375e;
+    margin-bottom:20px;
+}
+
+input[type=number]{
+    width:100%;
+    padding:15px;
+    font-size:22px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+button:hover{
+    transform:scale(1.02);
+}
+
+.filaStock{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.filaStock input{
+    flex:1;
+}
+
+.filaStock button{
+    width:170px;
+    background:#e9e9e9;
+}
+
+#quedan{
+    font-size:90px;
+    text-align:center;
+    color:#0d4f8b;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+.gridVentas{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.gridVentas button{
+    padding:22px;
+    background:#f4f4f4;
+}
+
+.pack{
+    width:100%;
+    padding:20px;
+    margin-top:15px;
+    background:#ffe08a;
+}
+
+.pack small{
+    display:block;
+    margin-top:8px;
+    font-size:16px;
+}
+
+.caja p{
+    display:flex;
+    justify-content:space-between;
+    font-size:22px;
+    margin:10px 0;
+}
+
+.botones{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.botones button{
+    padding:20px;
+}
+
+.botones button:first-child{
+    background:#666;
+    color:white;
+}
+
+.botones button:last-child{
+    background:#1b8f3d;
+    color:white;
+}
+
+@media(max-width:700px){
+
+.gridVentas{
+grid-template-columns:1fr;
+}
+
+.filaStock{
+flex-direction:column;
+}
+
+.filaStock button{
+width:100%;
+}
+
+}
