@@ -16,15 +16,21 @@
 
 <div class="contenedor">
 
-<h1>🍗 Rostisseria Milenium</h1>
+<header>
+
+<h1>🍗 ROSTISSERIA MILENIUM</h1>
+
+</header>
 
 <!-- STOCK -->
 
-<div class="caja">
+<section class="stock">
 
-<h2>Stock de pollos</h2>
+<h2>QUEDAN</h2>
 
-<div class="filaStock">
+<div id="quedan" class="numeroGrande">0</div>
+
+<div class="stockBotones">
 
 <input
 id="stockInicial"
@@ -35,186 +41,196 @@ placeholder="Stock inicial">
 Iniciar
 </button>
 
-</div>
-
-<div class="filaStock">
-
 <input
 id="stockExtra"
 type="number"
 placeholder="+ Retén">
 
 <button onclick="añadirStock()">
-➕
++ Stock
 </button>
 
 </div>
 
-<h3>QUEDAN</h3>
+</section>
 
-<div id="quedan">
-0
-</div>
-<hr>
+<!-- TIPO DE VENTA -->
 
-<h3>Tipo de venta</h3>
+<section class="tipoVenta">
 
-<div class="radio">
+<button
+id="btnSin"
+class="activo"
+onclick="seleccionarTipo('sin')">
 
-<label>
+🟢 SIN ENCARGO
 
-<input
-type="radio"
-name="tipoVenta"
-value="sin"
-checked>
+</button>
 
-Sin encargo
+<button
+id="btnCon"
+onclick="seleccionarTipo('con')">
 
-</label>
+🟠 CON ENCARGO
 
-<label>
+</button>
 
-<input
-type="radio"
-name="tipoVenta"
-value="con">
+</section>
 
-Con encargo
+<!-- PACKS -->
 
-</label>
+<section class="packs">
 
-</div>
-</div>
-<h2>Packs</h2>
+<button class="pack" onclick="pack1()">
 
-<button class="pack"
-onclick="pack1()">
-
-📦 Pack 1<br>
+📦 PACK 1
 
 <small>1/2 Pollo + 1/2 Caliu</small>
 
 </button>
 
-<button class="pack"
-onclick="pack2()">
+<button class="pack" onclick="pack2()">
 
-📦 Pack 2<br>
+📦 PACK 2
 
-<small>Pollo + Pan + Patatas + 4 croq</small>
-
-</button>
-
-<button class="pack"
-onclick="pack3()">
-
-📦 Pack 3<br>
-
-<small>Pollo + Pan + Patatas + Canelón + 6 croq </small>
+<small>Pollo + Pan + Patatas</small>
 
 </button>
 
-</div>
- <div id="selectorPatatas" style="display:none; margin-top:20px;">
+<button class="pack" onclick="pack3()">
 
-<h3>Elige las patatas</h3>
+📦 PACK 3
+
+<small>Pollo + Pan + Patatas + Canelón</small>
+
+</button>
+
+</section>
+
+<!-- SELECCIÓN PATATAS -->
+
+<section
+id="selectorPatatas"
+class="selectorPatatas"
+style="display:none;">
+
+<h2>ELIGE LAS PATATAS</h2>
 
 <button onclick="patataSeleccionada('caliu')">
-🥔 Caliu
+
+🥔 CALIU
+
 </button>
 
 <button onclick="patataSeleccionada('bravas')">
-🍟 Bravas
+
+🍟 BRAVAS
+
 </button>
 
 <button onclick="patataSeleccionada('fritas')">
-🍟 Fritas
+
+🍟 FRITAS
+
 </button>
 
-</div>
-<!-- VENTA INDIVIDUAL -->
+</section>
 
-<div class="caja">
+<!-- PRODUCTOS -->
 
-<h2>Venta individual</h2>
-
-<div class="gridVentas">
+<section class="productos">
 
 <button onclick="venderPollo()">
-🍗 Pollo
+
+🍗 POLLO ENTERO
+
 </button>
 
 <button onclick="venderMedioPollo()">
-🍗 1/2 Pollo
+
+🍗 1/2 POLLO
+
 </button>
 
 <button onclick="venderPan()">
-🥖 Pan
+
+🥖 BARRA PAN
+
 </button>
 
 <button onclick="venderCanelon()">
- Canelón
+
+🥟 CANELÓN
+
 </button>
 
 <button onclick="venderCaliu()">
-🥔 Caliu
+
+🥔 CALIU
+
 </button>
 
 <button onclick="venderBravas()">
-🍟 Bravas
+
+🍟 BRAVAS
+
 </button>
 
 <button onclick="venderFritas()">
-🍟 Fritas
+
+🍟 FRITAS
+
 </button>
 
-</div>
-
-</div>
+</section>
 
 <!-- RESUMEN -->
 
-<div class="caja">
+<section class="resumen">
 
-<h2>Resumen</h2>
+<h2>📊 RESUMEN</h2>
 
-<p>🐔 Sin encargo:
-<span id="sinEncargo">0</span></p>
+<div class="resumenGrid">
 
-<p>📞 Con encargo:
-<span id="conEncargo">0</span></p>
+<div>🍗 Pollos enteros <span id="pollosEnteros">0</span></div>
 
-<p>🥖 Pan:
-<span id="pan">0</span></p>
+<div>🍗 Medios pollos <span id="mediosPollos">0</span></div>
 
-<p> Canelones:
-<span id="canelones">0</span></p>
+<div>🥖 Barras pan <span id="pan">0</span></div>
 
-<p>🥔 Caliu:
-<span id="caliu">0</span></p>
+<div>🥟 Canelones <span id="canelones">0</span></div>
 
-<p>🍟 Bravas:
-<span id="bravas">0</span></p>
+<div>🥔 Caliu <span id="caliu">0</span></div>
 
-<p>🍟 Fritas:
-<span id="fritas">0</span></p>
+<div>🍟 Bravas <span id="bravas">0</span></div>
 
+<div>🍟 Fritas <span id="fritas">0</span></div>
 
+<div>📞 Sin encargo <span id="sinEncargo">0</span></div>
+
+<div>☎️ Con encargo <span id="conEncargo">0</span></div>
 
 </div>
 
-<div class="botones">
+</section>
+
+<!-- BOTONES -->
+
+<section class="acciones">
 
 <button onclick="deshacer()">
-↩ Deshacer
+
+↩ DESHACER
+
 </button>
 
 <button onclick="reiniciar()">
-🔄 Reiniciar día
+
+🔄 REINICIAR DÍA
+
 </button>
 
-</div>
+</section>
 
 </div>
 
