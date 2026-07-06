@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Rostisseria Milenium</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>🍗 Rostisseria Milenium</h1>
+
+<!-- STOCK -->
+
+<div class="caja">
+
+<h2>Stock de pollos</h2>
+
+<div class="filaStock">
+
+<input
+id="stockInicial"
+type="number"
+placeholder="Stock inicial">
+
+<button onclick="iniciarStock()">
+Iniciar
+</button>
+
+</div>
+
+<div class="filaStock">
+
+<input
+id="stockExtra"
+type="number"
+placeholder="+ Retén">
+
+<button onclick="añadirStock()">
+➕
+</button>
+
+</div>
+
+<h3>QUEDAN</h3>
+
+<div id="quedan">
+0
+</div>
+
+</div>
+
+<!-- VENTA INDIVIDUAL -->
+
+<div class="caja">
+
+<h2>Venta individual</h2>
+
+<div class="gridVentas">
+
+<button onclick="venderPollo()">
+🍗 Pollo
+</button>
+
+<button onclick="venderMedioPollo()">
+🍗 1/2 Pollo
+</button>
+
+<button onclick="venderPan()">
+🥖 Pan
+</button>
+
+<button onclick="venderCanelon()">
+🥟 Canelón
+</button>
+
+<button onclick="venderCaliu()">
+🥔 Caliu
+</button>
+
+<button onclick="venderBravas()">
+🍟 Bravas
+</button>
+
+<button onclick="venderFritas()">
+🍟 Fritas
+</button>
+
+</div>
+
+</div>
+
+<!-- PACKS -->
+
+<div class="caja">
+
+<h2>Packs</h2>
+
+<button class="pack"
+onclick="pack1()">
+
+📦 Pack 1<br>
+
+<small>1/2 Pollo + 1/2 Caliu</small>
+
+</button>
+
+<button class="pack"
+onclick="pack2()">
+
+📦 Pack 2<br>
+
+<small>Pollo + Pan + Patatas</small>
+
+</button>
+
+<button class="pack"
+onclick="pack3()">
+
+📦 Pack 3<br>
+
+<small>Pollo + Pan + Patatas + Canelón</small>
+
+</button>
+
+</div>
+
+<!-- RESUMEN -->
+
+<div class="caja">
+
+<h2>Resumen</h2>
+
+<p>🐔 Sin encargo:
+<span id="sinEncargo">0</span></p>
+
+<p>📞 Con encargo:
+<span id="conEncargo">0</span></p>
+
+<p>🥖 Pan:
+<span id="pan">0</span></p>
+
+<p>🥟 Canelones:
+<span id="canelones">0</span></p>
+
+<p>🥔 Caliu:
+<span id="caliu">0</span></p>
+
+<p>🍟 Bravas:
+<span id="bravas">0</span></p>
+
+<p>🍟 Fritas:
+<span id="fritas">0</span></p>
+
+<p>📦 Pack 1:
+<span id="pack1">0</span></p>
+
+<p>📦 Pack 2:
+<span id="pack2">0</span></p>
+
+<p>📦 Pack 3:
+<span id="pack3">0</span></p>
+
+</div>
+
+<div class="botones">
+
+<button onclick="deshacer()">
+↩ Deshacer
+</button>
+
+<button onclick="reiniciar()">
+🔄 Reiniciar día
+</button>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
