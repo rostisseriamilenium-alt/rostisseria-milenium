@@ -436,7 +436,9 @@ window.onload = function(){
     cargarDatos();
     actualizar();
 
-};
+};let totalPatatas = caliu + bravas + fritas;
+
+document.getElementById("totalPatatas").textContent = totalPatatas;
 
 // ===================================
 // FUNCIONES FUTURAS
