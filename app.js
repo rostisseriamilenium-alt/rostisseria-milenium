@@ -259,29 +259,51 @@ function venderFritas(){
 
 // ---------- ELEGIR PATATAS ----------
 
-function elegirPatatas(){
+let packPendiente = "";
 
-    let opcion = prompt(
-`Elige las patatas
+function mostrarPatatas(tipo){
 
-1 = Caliu
-2 = Bravas
-3 = Fritas`);
+    packPendiente = tipo;
 
-    if(opcion=="1"){
-        caliu += 1;
-    }
-    else if(opcion=="2"){
-        bravas += 1;
-    }
-    else if(opcion=="3"){
-        fritas += 1;
-    }
-    else{
-        return false;
+    document.getElementById("selectorPatatas").style.display="block";
+
+}
+
+function patataSeleccionada(tipo){
+
+    document.getElementById("selectorPatatas").style.display="none";
+
+    guardarHistorial();
+
+    if(tipo=="caliu") caliu++;
+    if(tipo=="bravas") bravas++;
+    if(tipo=="fritas") fritas++;
+
+    if(packPendiente=="pack2"){
+
+        stock--;
+
+        pan++;
+
+        pack2Total++;
+
     }
 
-    return true;
+    if(packPendiente=="pack3"){
+
+        stock--;
+
+        pan++;
+
+        canelones++;
+
+        pack3Total++;
+
+    }
+
+    actualizar();
+
+    guardarDatos();
 
 }
 
@@ -314,24 +336,14 @@ function pack1(){
 function pack2(){
 
     if(stock<1){
+
         alert("No quedan pollos");
+
         return;
+
     }
 
-    guardarHistorial();
-
-    if(!elegirPatatas()){
-        return;
-    }
-
-    stock--;
-
-    pan++;
-
-    pack2Total++;
-
-    actualizar();
-    guardarDatos();
+    mostrarPatatas("pack2");
 
 }
 
@@ -341,26 +353,14 @@ function pack2(){
 function pack3(){
 
     if(stock<1){
+
         alert("No quedan pollos");
+
         return;
+
     }
 
-    guardarHistorial();
-
-    if(!elegirPatatas()){
-        return;
-    }
-
-    stock--;
-
-    pan++;
-
-    canelones++;
-
-    pack3Total++;
-
-    actualizar();
-    guardarDatos();
+    mostrarPatatas("pack3");
 
 }
 
