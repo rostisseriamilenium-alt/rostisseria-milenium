@@ -530,3 +530,16 @@ input{
     background:#dcecff;
 
 }
+const quedan=document.getElementById("quedan");
+
+quedan.textContent=stock;
+
+if(stock<=10){
+
+    quedan.style.color="red";
+
+}else{
+
+    quedan.style.color="#1d5fa7";
+
+}
