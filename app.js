@@ -121,6 +121,19 @@ function guardarHistorial(){
     });
 
 }
+function sumarVenta(cantidad){
+
+    let tipo = document.querySelector(
+        'input[name="tipoVenta"]:checked'
+    ).value;
+
+    if(tipo=="sin"){
+        vendidosSin += cantidad;
+    }else{
+        vendidosCon += cantidad;
+    }
+
+}
 
 // ---------- STOCK ----------
 
@@ -173,7 +186,7 @@ function venderPollo(){
 
     stock--;
 
-    vendidosSin++;
+    sumarVenta(1);
 
     actualizar();
     guardarDatos();
@@ -191,7 +204,7 @@ function venderMedioPollo(){
 
     stock-=0.5;
 
-    vendidosSin+=0.5;
+    sumarVenta(0.5);
 
     actualizar();
     guardarDatos();
@@ -282,6 +295,8 @@ function patataSeleccionada(tipo){
     if(packPendiente=="pack2"){
 
         stock--;
+        
+        sumarVenta(1);
 
         pan++;
 
@@ -292,6 +307,8 @@ function patataSeleccionada(tipo){
     if(packPendiente=="pack3"){
 
         stock--;
+
+        sumarVenta(1);
 
         pan++;
 
@@ -319,7 +336,7 @@ function pack1(){
 
     guardarHistorial();
 
-    stock -= 0.5;
+    sumarVenta(0.5);
 
     caliu += 0.5;
 
