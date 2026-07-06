@@ -507,3 +507,26 @@ input{
     outline:none;
 
 }
+#btnSin{
+
+    background:#d7f5d7;
+
+}
+
+#btnCon{
+
+    background:#ffe6c8;
+
+}
+
+.pack{
+
+    background:#fff1b5;
+
+}
+
+.productos button{
+
+    background:#dcecff;
+
+}
