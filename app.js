@@ -523,7 +523,55 @@ function reiniciar(){
 
 function cerrarDia(){
 
-    alert(
+    document.getElementById("pantallaResumen").style.display="flex";
+
+    document.getElementById("contenidoResumen").innerHTML=`
+
+<p>🍗 Stock inicial: ${stockInicial}</p>
+
+<p>➕ Retén añadido: ${stockReten}</p>
+
+<hr>
+
+<p>🍗 Pollos enteros: ${pollosEnteros}</p>
+
+<p>🍗 Medios pollos: ${mediosPollos}</p>
+
+<p>🥖 Barras pan: ${pan}</p>
+
+<p>🥟 Canelones: ${canelones}</p>
+
+<p>🥔 Caliu: ${caliu}</p>
+
+<p>🍟 Bravas: ${bravas}</p>
+
+<p>🍟 Fritas: ${fritas}</p>
+
+<hr>
+
+<p>📞 Sin encargo: ${vendidosSin}</p>
+
+<p>☎️ Con encargo: ${vendidosCon}</p>
+
+<hr>
+
+<h2>🍗 Quedan: ${stock}</h2>
+
+`;
+
+}
+
+function cerrarResumen(){
+
+    document.getElementById("pantallaResumen").style.display="none";
+
+}
+
+function guardarResumen(){
+
+    alert("La opción Guardar será la siguiente mejora.");
+
+}
 
 `RESUMEN DEL DÍA
 
