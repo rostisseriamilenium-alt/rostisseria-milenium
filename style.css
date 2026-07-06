@@ -1,3 +1,8 @@
+/* =======================================
+   ROSTISSERIA MILENIUM
+   TABLET 10"
+======================================= */
+
 *{
     margin:0;
     padding:0;
@@ -6,120 +11,205 @@
 
 body{
 
-    font-family:Arial, Helvetica, sans-serif;
-    background:#eef2f6;
-    color:#17375e;
-    padding:15px;
+    background:#eef4f8;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    color:#1b3556;
+
+    overflow:hidden;
 
 }
 
 .contenedor{
 
-    max-width:900px;
-    margin:auto;
+    width:100vw;
+
+    height:100vh;
+
+    display:grid;
+
+    grid-template-rows:
+
+    auto
+    auto
+    auto
+    auto
+    1fr
+    auto;
+
+    gap:12px;
+
+    padding:12px;
 
 }
 
-h1{
-
-    text-align:center;
-    font-size:34px;
-    margin-bottom:20px;
-
-}
-
-section{
+header{
 
     background:white;
-    border-radius:18px;
-    padding:18px;
-    margin-bottom:18px;
-    box-shadow:0 4px 12px rgba(0,0,0,.10);
+
+    border-radius:20px;
+
+    padding:15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+
+}
+
+header h1{
+
+    font-size:34px;
+
+}
+
+.stock{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    text-align:center;
 
 }
 
 .stock h2{
 
-    text-align:center;
     font-size:30px;
 
 }
 
 .numeroGrande{
 
-    text-align:center;
-    font-size:95px;
+    font-size:90px;
+
     font-weight:bold;
-    color:#0d4f8b;
-    margin:15px 0;
+
+    color:#2f5d8c;
+
+    margin:10px 0;
 
 }
 
 .stockBotones{
 
     display:grid;
+
     grid-template-columns:2fr 1fr;
+
     gap:10px;
 
 }
 
 .stockBotones input{
 
-    padding:16px;
-    font-size:24px;
+    padding:15px;
+
+    font-size:22px;
+
     border-radius:12px;
-    border:2px solid #ccc;
+
+    border:2px solid #d7d7d7;
 
 }
 
 .stockBotones button{
 
+    border:none;
+
+    border-radius:12px;
+
     font-size:22px;
 
-}
+    cursor:pointer;
+
+    background:#9dd9f3;
+
+}/* =======================================
+   BOTONES TABLET
+======================================= */
 
 .tipoVenta{
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:15px;
+
+    gap:12px;
 
 }
 
 .tipoVenta button{
 
-    padding:22px;
-    font-size:28px;
-    font-weight:bold;
+    height:75px;
+
     border:none;
-    border-radius:16px;
+
+    border-radius:18px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
     cursor:pointer;
-    background:#d9d9d9;
+
+    transition:.2s;
+
+}
+
+#btnSin{
+
+    background:#cfeecf;
+
+    color:#215d21;
+
+}
+
+#btnCon{
+
+    background:#ffe1c2;
+
+    color:#8a4d00;
 
 }
 
 .tipoVenta button.activo{
 
-    background:#1b8f3d;
-    color:white;
+    transform:scale(1.03);
+
+    box-shadow:0 0 12px rgba(0,0,0,.20);
 
 }
+
+/* ---------- PACKS ---------- */
 
 .packs{
 
     display:grid;
-    gap:15px;
+
+    grid-template-columns:1fr;
+
+    gap:12px;
 
 }
 
 .pack{
 
-    padding:25px;
-    font-size:30px;
-    font-weight:bold;
     border:none;
-    border-radius:16px;
-    background:#ffcc33;
+
+    border-radius:18px;
+
+    background:#fff3b5;
+
+    padding:20px;
+
+    font-size:30px;
+
+    font-weight:bold;
+
     cursor:pointer;
 
 }
@@ -127,152 +217,293 @@ section{
 .pack small{
 
     display:block;
-    margin-top:8px;
+
+    margin-top:6px;
+
     font-size:18px;
 
+    font-weight:normal;
+
 }
+
+/* ---------- PRODUCTOS ---------- */
 
 .productos{
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:15px;
+
+    gap:12px;
 
 }
 
 .productos button{
 
-    padding:22px;
-    font-size:26px;
-    font-weight:bold;
+    height:80px;
+
     border:none;
-    border-radius:16px;
-    background:#0d6efd;
-    color:white;
+
+    border-radius:18px;
+
+    background:#d7ebff;
+
+    color:#154c79;
+
+    font-size:24px;
+
+    font-weight:bold;
+
     cursor:pointer;
 
 }
 
+/* ---------- PATATAS ---------- */
+
 .selectorPatatas{
 
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
     text-align:center;
+
+}
+
+.selectorPatatas h2{
+
+    margin-bottom:15px;
 
 }
 
 .selectorPatatas button{
 
     width:100%;
-    margin-top:12px;
-    padding:22px;
-    font-size:28px;
-    font-weight:bold;
+
+    height:70px;
+
+    margin-bottom:12px;
+
     border:none;
+
     border-radius:16px;
-    background:#ff9800;
-    color:white;
+
+    background:#ffe8b5;
+
+    font-size:24px;
+
+    font-weight:bold;
+
     cursor:pointer;
+
+}/* =======================================
+   RESUMEN
+======================================= */
+
+.resumen{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:15px;
+
+}
+
+.resumen h2{
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+    font-size:28px;
 
 }
 
 .resumenGrid{
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:12px;
-    font-size:22px;
+
+    gap:10px;
 
 }
 
 .resumenGrid div{
 
-    background:#f4f4f4;
-    padding:12px;
-    border-radius:10px;
+    background:#f6f8fa;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    font-size:20px;
 
 }
+
+/* =======================================
+   BOTONES FINALES
+======================================= */
 
 .acciones{
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:15px;
+
+    gap:12px;
 
 }
 
 .acciones button{
 
-    padding:22px;
-    font-size:24px;
-    font-weight:bold;
+    height:70px;
+
     border:none;
-    border-radius:16px;
+
+    border-radius:18px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
     cursor:pointer;
 
 }
 
 .acciones button:first-child{
 
-    background:#666;
-    color:white;
+    background:#d9d9d9;
 
 }
 
 .acciones button:last-child{
 
-    background:#d62828;
-    color:white;
+    background:#cfe7ff;
 
 }
 
-button{
+/* =======================================
+   PANTALLA CIERRE DÍA
+======================================= */
 
-    transition:.2s;
-
-}
-
-button:active{
-
-    transform:scale(.97);
-
-}
 .pantallaResumen{
 
-position:fixed;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.55);
+    position:fixed;
 
-display:flex;
-justify-content:center;
-align-items:center;
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
 
 }
 
 .resumenCaja{
 
-width:90%;
-max-width:600px;
+    width:90%;
 
-background:white;
+    max-width:650px;
 
-padding:30px;
+    background:white;
 
-border-radius:20px;
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 
 }
 
 .resumenCaja h2{
 
-text-align:center;
-margin-bottom:20px;
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:#1b3556;
+
+}
+
+#contenidoResumen{
+
+    font-size:22px;
+
+    line-height:1.8;
 
 }
 
 .resumenCaja button{
 
-width:100%;
-margin-top:12px;
+    width:100%;
+
+    height:65px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.resumenCaja button:nth-child(3){
+
+    background:#d8f3dc;
+
+}
+
+.resumenCaja button:nth-child(4){
+
+    background:#fff3bf;
+
+}
+
+.resumenCaja button:nth-child(5){
+
+    background:#ffd6d6;
+
+}
+
+.resumenCaja button:nth-child(6){
+
+    background:#e9ecef;
+
+}
+
+/* =======================================
+   EFECTOS
+======================================= */
+
+button{
+
+    transition:.15s;
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+input{
+
+    outline:none;
 
 }
