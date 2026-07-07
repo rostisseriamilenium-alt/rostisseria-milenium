@@ -114,6 +114,7 @@ function actualizar(){
         quedan.style.color="#0d4f8b";
 
     }
+    console.log(document.getElementById("pollosEnteros"));
 
     document.getElementById("pollosEnteros").textContent=pollosEnteros;
     document.getElementById("mediosPollos").textContent=mediosPollos;
