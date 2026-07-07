@@ -17,10 +17,11 @@ body{
 
     color:#1b3556;
 
-    overflow:hidden;
+    overflow-y:auto;
+
+    overflow-x:hidden;
 
 }
-
 .contenedor{
 
     width:100vw;
